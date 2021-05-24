@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/ivNewsBanner"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_15"
+        tools:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/ivNewsChannel"
+        android:layout_width="@dimen/dp_63"
+        android:layout_height="@dimen/dp_23"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/ivNewsBanner"/>
+
+    <TextView
+        android:id="@+id/tvNewsDes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintTop_toBottomOf="@+id/ivNewsChannel"
+        app:layout_constraintStart_toStartOf="@+id/ivNewsBanner"
+        tools:text="TEsting 123 how are i am thop and thop bv"
+        android:fontFamily="@font/baloo_tammudu_regular"
+        android:textSize="@dimen/sp_22"
+        android:lineSpacingMultiplier=".5"
+        android:textColor="@color/text_color_news_item_description"
+        app:layout_constraintEnd_toEndOf="@+id/ivNewsBanner"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

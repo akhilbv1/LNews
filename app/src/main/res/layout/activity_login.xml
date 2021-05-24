@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvNews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha=".5"
+        android:fontFamily="@font/baloo_tammudu_bold"
+        android:lineSpacingMultiplier="2.2"
+        android:text="News"
+        android:textColor="@color/colorAccent"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guide_20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".10" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".85" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tlEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guide_85"
+        app:layout_constraintStart_toStartOf="@id/guide_15"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeColor="@color/black"
+        android:hint="username"
+        android:textColorHint="#BDBDBD"
+        app:hintTextColor="#BDBDBD"
+        app:boxBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/guide_35">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tlPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guide_85"
+        app:layout_constraintStart_toStartOf="@id/guide_15"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeColor="@color/black"
+        android:hint="password"
+        app:hintTextColor="#BDBDBD"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#BDBDBD"
+        app:layout_constraintTop_toBottomOf="@+id/tlEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:gravity="start"
+        android:fontFamily="@font/baloo_tammudu_bold"
+        android:textSize="20sp"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/login_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/login_arrow"
+        app:layout_constraintStart_toStartOf="@+id/login_arrow"/>
+
+
+    <ImageView
+        android:id="@+id/login_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/tlPassword"
+        app:layout_constraintStart_toStartOf="@id/guide_15"
+        app:layout_constraintEnd_toEndOf="@id/guide_85"
+        android:src="@drawable/ic_arrow"/>
+
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:gravity="start"
+        android:fontFamily="@font/baloo_tammudu_bold"
+        android:textSize="20sp"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/signup_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/signup_arrow"
+        app:layout_constraintStart_toStartOf="@+id/signup_arrow"/>
+
+
+    <ImageView
+        android:id="@+id/signup_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/login_arrow"
+        app:layout_constraintStart_toStartOf="@id/guide_15"
+        app:layout_constraintEnd_toEndOf="@id/guide_85"
+        android:src="@drawable/ic_arrow"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
