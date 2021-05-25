@@ -1,13 +1,9 @@
 package org.akiapps.news
 
-import android.os.Bundle
-import android.view.ViewPropertyAnimator
-import android.view.animation.AccelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity :AppCompatActivity(){
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         listOf(login_arrow,tvLogin).forEach {
@@ -27,5 +23,5 @@ class LoginActivity :AppCompatActivity(){
         tvLogin.animate().alpha(0f).apply {
             duration = 500
         }.start()
-    }
+    }*/
 }

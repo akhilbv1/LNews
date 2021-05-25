@@ -10,7 +10,7 @@ import org.akiapps.news.News
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class,ActivitiesModule::class,AppModule::class,HelpersModule::class,ViewModelsModule::class])
+@Component(modules = [AndroidInjectionModule::class,ActivitiesModule::class,FragmentsModule::class,AppModule::class,HelpersModule::class,ViewModelsModule::class])
 interface ApplicationComponent:AndroidInjector<News> {
 
     @Component.Factory

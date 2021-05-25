@@ -1,47 +1,59 @@
 package org.akiapps.news.country
 
-import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.fragment_countries.*
-import org.akiapps.news.R
-import org.akiapps.news.base.ViewModelFactory
-import javax.inject.Inject
+import org.akiapps.news.base.AppBaseFragment
+import org.akiapps.news.databinding.FragmentCountriesBinding
+import org.akiapps.news.extensions.playLoader
+import org.akiapps.news.network.Article
 
-class CountryArticlesListFragment : DaggerFragment() {
-
-    @Inject
-    lateinit var viewModelFactory:ViewModelFactory
-
-    lateinit var viewModel:CountriesNewsViewModel
+class CountryArticlesListFragment :
+    AppBaseFragment<CountriesNewsViewModel, FragmentCountriesBinding>() {
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_countries,container,false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViewModel()
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        viewModel = ViewModelProvider(this,viewModelFactory)[CountriesNewsViewModel::class.java]
+    private fun setupViewModel() {
+        binding.lottieLoading.playLoader()
+        viewModel.fetchArticles()
     }
 
-
-    private fun setupArticlesNews(){
-        recArticles.apply {
+    private fun setupArticlesNews(articlesList: ArrayList<Article>) {
+        binding.recArticles.animate().alphaBy(1f)
+        binding.lottieLoading.animate().alphaBy(0f)
+        binding.recArticles.apply {
             layoutManager = LinearLayoutManager(requireContext())
+            adapter = CountriesListAdapter(articlesList)
         }
     }
 
 
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentCountriesBinding {
+        return FragmentCountriesBinding.inflate(layoutInflater, container, false)
+    }
 
+    override fun getClassName(): String {
+        return CountryArticlesListFragment::class.java.simpleName
+    }
 
+    override fun observeViewModelData() {
+        viewModel.articlesLiveData.observe(this, {
+            it.checkResponse({
+                Log.d(getClassName(), "list is ${it.value.articles.toList().size}")
+                setupArticlesNews(it.value.articles)
+            }, {
+                Log.d(getClassName(), "error is ${it.errorBody}")
+            })
+        })
+    }
 }

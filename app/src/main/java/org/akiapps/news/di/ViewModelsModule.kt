@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import org.akiapps.news.base.ViewModelFactory
+import org.akiapps.news.country.CountriesNewsViewModel
 import org.akiapps.news.mainactivity.MainViewModel
 
 @Module
@@ -18,4 +19,10 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     abstract fun sampleViewModel(viewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CountriesNewsViewModel::class)
+    abstract fun bindCountriesViewModel(viewModel: CountriesNewsViewModel):ViewModel
+
 }
